@@ -1,2 +1,2 @@
 # flask_todo
-To Do List using Python, Flask and SQLite
+To Do List implimented with Python, Flask, SQLite, SQAlchemy, and styled with Boostrap.
