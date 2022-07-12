@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <title>To Do App</title>
+</head>
+<body style="margin: 0;
+            padding: 0;
+            background-color: rgb(82, 194, 119);
+            color: #fff;">
+            
+    <div style="margin-top: 50px;
+                text-align: center;" class="container">
+        <h1>To Do App</h1>
+
+        <form action="/add" method="post">
+            <div class="field">
+                <label for="title">Title</label>
+                <input style="background-color: rgb(48, 110, 69);
+                              color: #fff;
+                              border: none;
+                              border-radius: 5px;" type="text" name="title" placeholder="Enter Inquiry...">
+                <br/>
+                <button type="submit" 
+                        class="btn btn-primary"
+                        style="margin: 10px;">Add</button>
+            </div>
+        </form>
+
+        {% for todo in todo_list %}
+        <div style="margin-top: 5px;" class="ui segment">
+            <p> {{ todo.id }} | {{ todo.title }} </p>
+
+            {% if todo.complete == False %}
+                <span>Not Complete</span>
+            {% else %}
+                <span>Complete</span>
+            {% endif %}
+
+            <a href="/update/{{ todo.id }}" class="btn btn-success">Update</a>
+            <a href="/delete/{{ todo.id }}" class="btn btn-danger">Remove</a>
+        </div>    
+        {% endfor %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
